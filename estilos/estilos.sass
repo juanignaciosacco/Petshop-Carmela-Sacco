@@ -1,0 +1,146 @@
+$colorMarronOscuro: #614530
+$colorMarronIntermedio: #613513
+$colorMarronClaro: #AD5F23
+$colorMarronAnaranjado: #E0762D
+$colorMarronCremita: #E6A473
+
+* 
+    margin: 0px
+    padding: 0px
+    box-sizing: border-box
+
+body
+    overflow-x: hidden
+
+h1
+    color: $colorMarronClaro
+
+h2
+    color: $colorMarronIntermedio
+
+h3
+    color: $colorMarronAnaranjado
+
+h4
+    color: $colorMarronAnaranjado
+
+nav
+    background-color: $colorMarronOscuro
+    z-index: 1000
+
+#iconoCuenta
+    font-size: 1.2em
+    line-height: 35px
+    background: none
+    border: none
+    i
+        color: $colorMarronCremita
+
+#btn-carousel
+    background-color: black
+
+.avance
+    background-color: $colorMarronClaro
+
+.imgAvance
+    width: 100%
+
+.popupInicioSesion
+    min-height: 150px
+    width: 100%
+    padding-top: 50px
+    padding-bottom: 30px
+    border: 1px solid black
+    background-color: $colorMarronOscuro
+    position: absolute
+    top: 150
+    left: 0
+    z-index: 10001
+
+.enVista
+    display: block
+
+.oculto
+    display: none
+
+#formularioInicioSesion
+    display: flex
+    flex-direction: column
+    width: 300px
+    margin-left: auto
+    margin-right: auto
+    align-items: center
+    #txtUsuario, #txtContrasena, #btnSubmit, #btnRegistrarse
+        margin-top: 10px
+
+.camposDeRegistro
+    display: none
+    #formularioRegistro
+        display: flex
+        flex-direction: column
+        width: 300px
+        margin-left: auto
+        margin-right: auto
+        align-items: center
+        #txtNombre, #txtApellido, label, #txtUsuarioRegistro, #txtContrasenaRegistro, input[type="submit"]
+            margin-top: 10px
+
+.estadoInicioSesion
+    margin-top: 20px
+    color: $colorMarronCremita
+
+#menuUsuario
+    display: none
+    flex-direction: column
+    a
+        text-decoration: none
+        color: $colorMarronCremita
+        &:hover
+            color: $colorMarronClaro
+
+#btnCerrarSesion
+    background: none
+    border: none
+    color: $colorMarronCremita
+    &:hover
+        color: $colorMarronClaro
+
+footer
+    background-color: $colorMarronOscuro
+    i
+        font-size: 30px
+        color: $colorMarronCremita
+
+// Comienza pagina productos
+
+#barraFiltros 
+    position: absolute
+    padding-top: 60px
+    width: 200px
+    height: 100%
+    background: $colorMarronOscuro
+    left: 0px
+    top: 150px
+
+#barraFiltros 
+    ul 
+        li 
+            color: $colorMarronCremita
+            list-style: none
+            padding: 15px 10px
+            border-bottom: 1px solid rgba(100, 100, 100, .3)
+            text-align: center
+
+#productos
+    margin-left: 150px
+    display: flex
+    flex-direction: row
+    flex-wrap: wrap
+    article
+        text-align: center
+        img
+            height: 150px
+
+.imgProductoEnCarrito
+    width: 80px
+

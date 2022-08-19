@@ -1,0 +1,171 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+h1 {
+  color: #AD5F23;
+}
+
+h2 {
+  color: #613513;
+}
+
+h3 {
+  color: #E0762D;
+}
+
+h4 {
+  color: #E0762D;
+}
+
+nav {
+  background-color: #614530;
+  z-index: 1000;
+}
+
+#iconoCuenta {
+  font-size: 1.2em;
+  line-height: 35px;
+  background: none;
+  border: none;
+}
+#iconoCuenta i {
+  color: #E6A473;
+}
+
+#btn-carousel {
+  background-color: black;
+}
+
+.avance {
+  background-color: #AD5F23;
+}
+
+.imgAvance {
+  width: 100%;
+}
+
+.popupInicioSesion {
+  min-height: 150px;
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 30px;
+  border: 1px solid black;
+  background-color: #614530;
+  position: absolute;
+  top: 150;
+  left: 0;
+  z-index: 10001;
+}
+
+.enVista {
+  display: block;
+}
+
+.oculto {
+  display: none;
+}
+
+#formularioInicioSesion {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
+}
+#formularioInicioSesion #txtUsuario, #formularioInicioSesion #txtContrasena, #formularioInicioSesion #btnSubmit, #formularioInicioSesion #btnRegistrarse {
+  margin-top: 10px;
+}
+
+.camposDeRegistro {
+  display: none;
+}
+.camposDeRegistro #formularioRegistro {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
+}
+.camposDeRegistro #formularioRegistro #txtNombre, .camposDeRegistro #formularioRegistro #txtApellido, .camposDeRegistro #formularioRegistro label, .camposDeRegistro #formularioRegistro #txtUsuarioRegistro, .camposDeRegistro #formularioRegistro #txtContrasenaRegistro, .camposDeRegistro #formularioRegistro input[type=submit] {
+  margin-top: 10px;
+}
+
+.estadoInicioSesion {
+  margin-top: 20px;
+  color: #E6A473;
+}
+
+#menuUsuario {
+  display: none;
+  flex-direction: column;
+}
+#menuUsuario a {
+  text-decoration: none;
+  color: #E6A473;
+}
+#menuUsuario a:hover {
+  color: #AD5F23;
+}
+
+#btnCerrarSesion {
+  background: none;
+  border: none;
+  color: #E6A473;
+}
+#btnCerrarSesion:hover {
+  color: #AD5F23;
+}
+
+footer {
+  background-color: #614530;
+}
+footer i {
+  font-size: 30px;
+  color: #E6A473;
+}
+
+#barraFiltros {
+  position: absolute;
+  padding-top: 60px;
+  width: 200px;
+  height: 100%;
+  background: #614530;
+  left: 0px;
+  top: 150px;
+}
+
+#barraFiltros ul li {
+  color: #E6A473;
+  list-style: none;
+  padding: 15px 10px;
+  border-bottom: 1px solid rgba(100, 100, 100, 0.3);
+  text-align: center;
+}
+
+#productos {
+  margin-left: 150px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+#productos article {
+  text-align: center;
+}
+#productos article img {
+  height: 150px;
+}
+
+.imgProductoEnCarrito {
+  width: 80px;
+}
+
+/*# sourceMappingURL=estilos.css.map */
