@@ -18,120 +18,120 @@ let listaUsuarioStorage = localStorage.getItem('Usuarios')
 const persona1 = new Usuario('Juanchi', 'Sacco', '1995','a@', 'a', 1)
 listaUsuarios.push(persona1)
 
-const productos = [{
-    img: "img/Productos/Camas/Cama1.jpg",
-    nombre: "Cama 1",
-    tipoAnimal: "Perro",
-    categoria: "Desanso",
-    precio: 1000,
-    id: 1
-},{
-    img: "img/Productos/Camas/Cama2.png",
-    nombre: "Cama 2",
-    tipoAnimal: "Perro",
-    categoria: "Desanso",
-    precio: 2000,
-    id: 2
-},{
-    img: "img/Productos/Camas/Cama3.png",
-    nombre: "Cama 3",
-    tipoAnimal: "Perro",
-    categoria: "Desanso",
-    precio: 1500,
-    id: 3
-},{
-    img: "img/Productos/Camas/Cama4.jpg",
-    nombre: "Cama 4",
-    tipoAnimal: "Gato",
-    categoria: "Desanso",
-    precio: 3000,
-    id: 4
-},{
-    img: "img/Productos/Camas/Cama5.jpeg",
-    nombre: "Cama 5",
-    tipoAnimal: "Perro",
-    categoria: "Desanso",
-    precio: 2500,
-    id: 5
-},{
-    img: "img/Productos/Camas/Cama6.jpeg",
-    nombre: "Cama 6",
-    tipoAnimal: "Gato",
-    categoria: "Desanso",
-    precio: 1000,
-    id: 6
-},{
-    img: "img/Productos/Correas/Correa1.jpg",
-    nombre: "Correa 1",
-    tipoAnimal: "Gato",
-    categoria: "Paseo",
-    precio: 500,
-    id: 7
-},{
-    img: "img/Productos/Correas/Correa2.jpg",
-    nombre: "Correa 2",
-    tipoAnimal: "Perro",
-    categoria: "Paseo",
-    precio: 700,
-    id: 8
-},{
-    img: "img/Productos/Juguetes/Juguete1.jpg",
-    nombre: "Juguete 1",
-    tipoAnimal: "Perro",
-    categoria: "Juegos",
-    precio: 1300,
-    id: 9
-},{
-    img: "img/Productos/Juguetes/Juguete2.jpg",
-    nombre: "Juguete 2",
-    tipoAnimal: "Perro",
-    categoria: "Juegos",
-    precio: 1800,
-    id: 10
-},{
-    img: "img/Productos/Juguetes/Juguete3.jpg",
-    nombre: "Juguete 3",
-    tipoAnimal: "Gato",
-    categoria: "Juegos",
-    precio: 900,
-    id: 11
-},{
-    img: "img/Productos/Juguetes/Juguete4.jpg",
-    nombre: "Juguete 4",
-    tipoAnimal: "Gato",
-    categoria: "Juegos",
-    precio: 1400,
-    id: 12
-},{
-    img: "img/Productos/Transportadores/Transportador1.jpg",
-    nombre: "Transportador 1",
-    tipoAnimal: "Gato",
-    categoria: "Transporte",
-    precio: 4000,
-    id: 13
-},{
-    img: "img/Productos/Transportadores/Transportador2.jpg",
-    nombre: "Transportador 2",
-    tipoAnimal: "Gato",
-    categoria: "Transporte",
-    precio: 6000,
-    id: 14
-},{
-    img: "img/Productos/Transportadores/Transportador3.jpg",
-    nombre: "Transportador 3",
-    tipoAnimal: "Perro",
-    categoria: "Transporte",
-    precio: 7000,
-    id: 15
-},{
-    img: "img/Productos/Transportadores/Transportador4.jpg",
-    nombre: "Transportador 4",
-    tipoAnimal: "Perro",
-    categoria: "Transporte",
-    precio: 8000,
-    id: 16
-}
-]
+// const productos = [{
+//     img: "img/Productos/Camas/Cama1.jpg",
+//     nombre: "Cama 1",
+//     tipoAnimal: "Perro",
+//     categoria: "Desanso",
+//     precio: 1000,
+//     id: 1
+// },{
+//     img: "img/Productos/Camas/Cama2.png",
+//     nombre: "Cama 2",
+//     tipoAnimal: "Perro",
+//     categoria: "Desanso",
+//     precio: 2000,
+//     id: 2
+// },{
+//     img: "img/Productos/Camas/Cama3.png",
+//     nombre: "Cama 3",
+//     tipoAnimal: "Perro",
+//     categoria: "Desanso",
+//     precio: 1500,
+//     id: 3
+// },{
+//     img: "img/Productos/Camas/Cama4.jpg",
+//     nombre: "Cama 4",
+//     tipoAnimal: "Gato",
+//     categoria: "Desanso",
+//     precio: 3000,
+//     id: 4
+// },{
+//     img: "img/Productos/Camas/Cama5.jpeg",
+//     nombre: "Cama 5",
+//     tipoAnimal: "Perro",
+//     categoria: "Desanso",
+//     precio: 2500,
+//     id: 5
+// },{
+//     img: "img/Productos/Camas/Cama6.jpeg",
+//     nombre: "Cama 6",
+//     tipoAnimal: "Gato",
+//     categoria: "Desanso",
+//     precio: 1000,
+//     id: 6
+// },{
+//     img: "img/Productos/Correas/Correa1.jpg",
+//     nombre: "Correa 1",
+//     tipoAnimal: "Gato",
+//     categoria: "Paseo",
+//     precio: 500,
+//     id: 7
+// },{
+//     img: "img/Productos/Correas/Correa2.jpg",
+//     nombre: "Correa 2",
+//     tipoAnimal: "Perro",
+//     categoria: "Paseo",
+//     precio: 700,
+//     id: 8
+// },{
+//     img: "img/Productos/Juguetes/Juguete1.jpg",
+//     nombre: "Juguete 1",
+//     tipoAnimal: "Perro",
+//     categoria: "Juegos",
+//     precio: 1300,
+//     id: 9
+// },{
+//     img: "img/Productos/Juguetes/Juguete2.jpg",
+//     nombre: "Juguete 2",
+//     tipoAnimal: "Perro",
+//     categoria: "Juegos",
+//     precio: 1800,
+//     id: 10
+// },{
+//     img: "img/Productos/Juguetes/Juguete3.jpg",
+//     nombre: "Juguete 3",
+//     tipoAnimal: "Gato",
+//     categoria: "Juegos",
+//     precio: 900,
+//     id: 11
+// },{
+//     img: "img/Productos/Juguetes/Juguete4.jpg",
+//     nombre: "Juguete 4",
+//     tipoAnimal: "Gato",
+//     categoria: "Juegos",
+//     precio: 1400,
+//     id: 12
+// },{
+//     img: "img/Productos/Transportadores/Transportador1.jpg",
+//     nombre: "Transportador 1",
+//     tipoAnimal: "Gato",
+//     categoria: "Transporte",
+//     precio: 4000,
+//     id: 13
+// },{
+//     img: "img/Productos/Transportadores/Transportador2.jpg",
+//     nombre: "Transportador 2",
+//     tipoAnimal: "Gato",
+//     categoria: "Transporte",
+//     precio: 6000,
+//     id: 14
+// },{
+//     img: "img/Productos/Transportadores/Transportador3.jpg",
+//     nombre: "Transportador 3",
+//     tipoAnimal: "Perro",
+//     categoria: "Transporte",
+//     precio: 7000,
+//     id: 15
+// },{
+//     img: "img/Productos/Transportadores/Transportador4.jpg",
+//     nombre: "Transportador 4",
+//     tipoAnimal: "Perro",
+//     categoria: "Transporte",
+//     precio: 8000,
+//     id: 16
+// }
+// ]
 
 // Array de carrito de compras por usuario
 let carrito = []
@@ -206,7 +206,7 @@ let articulo = ''
 let parteCarrito = document.querySelector('#carrito')
 let listaCarrito = document.querySelector('#listaCarrito')
 let btnCarrito = document.querySelector('#btnCarrito')
-let productoEnCarro = ''
+let productoEnCarro
 let costoTotalCarro = document.querySelector('#costoTotal')
 let sumaProductos = 0
 // Muestra o oculta el carrito de compras
@@ -214,25 +214,44 @@ btnCarrito.onclick = (e) => {
     parteCarrito.classList.contains('oculto') ? (parteCarrito.classList.remove('oculto'), popupRegistro.classList.add('oculto')) : parteCarrito.classList.add('oculto');
 }
 
-// Cargo los productos al html
-for (producto of productos) {
-    articulo += `<article class="col-3 mt-3">
-    <img src="${producto.img}" alt="">
-    <div class="descripcion">
-        <h3>${producto.nombre}</h3>
-        <p>${producto.tipoAnimal}</p>
-        <p>Precio: $${producto.precio}</p>
-        <p>
-    </div>
-    <input type="button" value="Agregar a carrito" id="${producto.id}" class="btnAgregarACarrito">
-</article>`
-}
-if(tablaProductos != null){
-tablaProductos.innerHTML = articulo
-}
-
-// Llamo al boton para agregar productos al carrito
-let btnsAgregarACarrito = document.querySelectorAll('.btnAgregarACarrito')
+// Cargo los productos al html mediante fetch
+fetch('productos.json')
+    .then((response) => {
+        return response.json();
+    })
+    .then((productos) => {
+        console.log('Estoy en el fetch')
+        productos.forEach(producto => {
+            const {img, nombre, tipoAnimal, precio, id} = producto
+            articulo += `<article class="col-3 mt-3">
+                            <img src="${img}" alt="">
+                            <div class="descripcion">
+                                <h3>${nombre}</h3>
+                                <p>${tipoAnimal}</p>
+                                <p>Precio: $${precio}</p>
+                                <p>
+                            </div>
+                            <input type="button" value="Agregar a carrito" id="${id}" class="btnAgregarACarrito">
+                        </article>`
+        })
+        tablaProductos.innerHTML = articulo
+        // Llamo al boton para agregar productos al carrito
+        let btnsAgregarACarrito = document.querySelectorAll('.btnAgregarACarrito')
+        for (btn of btnsAgregarACarrito) {
+            btn.onclick = (e) => {
+                console.log(carrito)
+                let idBtn = e.target.attributes.id.value
+                let productoSeleccionado = productos.find(e => e.id == idBtn)
+                productoSeleccionado.idComprador = usuarioActivo
+                carrito.push(productoSeleccionado)
+                localStorage.setItem('carrito', JSON.stringify(carrito))
+                cargarCarrito(productoSeleccionado)
+            }
+        }
+    })
+    .catch((error) => {
+        console.log(error)
+    })
 
 // Verifico si el carrito esta lleno o no 
 function verificarCarroLleno(){
@@ -240,8 +259,6 @@ function verificarCarroLleno(){
     if (carritoStorage != null) {
         carritoStorage = JSON.parse(carritoStorage)
         filtrarStoragePorUsuario(carritoStorage)
-    } else {
-        agregarProductoACarrito()
     }
 }
 
@@ -255,24 +272,7 @@ function filtrarStoragePorUsuario(carritoStorage){
             return e
         }
     }) 
-    !carroAMostrar.includes(null) ? (carrito.length = 0, carroAMostrar.forEach(e => {carrito.push(e)}), carrito.forEach(e => {cargarCarrito(e)})) : carroAMostrar.length = 0
-    agregarProductoACarrito()
-}
-
-// Iteracion para seleccionar el producto que agrega al carrito
-function agregarProductoACarrito(){
-    for (btn of btnsAgregarACarrito) {
-        btn.onclick = (e) => {
-            e.preventDefault()
-            console.log(carrito)
-            let idBtn = e.target.attributes.id.value
-            let productoSeleccionado = productos.find(e => e.id == idBtn)
-            productoSeleccionado.idComprador = usuarioActivo
-            carrito.push(productoSeleccionado)
-            localStorage.setItem('carrito', JSON.stringify(carrito))
-            cargarCarrito(productoSeleccionado)
-        }
-    }
+    !carroAMostrar.includes(null) ? (carrito.length = 0, carroAMostrar.forEach(e => {cargarCarrito(e)})) : carroAMostrar.length = 0
 }
 
 function cargarCarrito(producto){
