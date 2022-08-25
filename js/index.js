@@ -139,7 +139,6 @@ let carrito = []
 
 
 /* Comienzan los llamados de elementos de formulario inicio sesion y registro */
-
 // Llamo a la ventana popup de inicio de sesion o registro
 let popupRegistro = document.querySelector('.popupInicioSesion')
 // Llamo al link de registro
@@ -148,7 +147,6 @@ let btnRegistro = document.querySelector('#iconoCuenta')
 btnRegistro.onclick = (e) => {
     popupRegistro.classList.contains('oculto') ? (popupRegistro.classList.remove('oculto'), parteCarrito.classList.add('oculto')) : popupRegistro.classList.add('oculto');
 }
-
 
 let ingresoExitoso
 let usuarioActivo
@@ -264,6 +262,9 @@ function verificarCarroLleno(){
 
 function filtrarStoragePorUsuario(carritoStorage){
     let carroAMostrar = []
+    for(producto of carritoStorage){
+        console.log(producto)
+    }
     carroAMostrar = carritoStorage.map(function(e) {
         if(e.idComprador == usuarioActivo){
             return e
@@ -271,12 +272,14 @@ function filtrarStoragePorUsuario(carritoStorage){
             e = null
             return e
         }
-    }) 
+    })
+    console.log(carroAMostrar)
     !carroAMostrar.includes(null) ? (carrito.length = 0, carroAMostrar.forEach(e => {cargarCarrito(e)})) : carroAMostrar.length = 0
 }
 
 function cargarCarrito(producto){
-        productoEnCarro += `<li class="list-group-item"><p><img src="${producto.img}" class="imgProductoEnCarrito" alt=""></p><p>${producto.nombre}</p><p>Precio: $${producto.precio}</p><button id="btnQuitarProducto">Quitar</button></li>`
+        const {img, nombre, precio} = producto
+        productoEnCarro += `<li class="list-group-item"><p><img src="${img}" class="imgProductoEnCarrito" alt=""></p><p>${nombre}</p><p>Precio: $${precio}</p><button id="btnQuitarProducto">Quitar</button></li>`
         listaCarrito.innerHTML = productoEnCarro
 }
 
