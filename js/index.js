@@ -3,138 +3,34 @@
 // Array de usuarios registrados
 let listaUsuarios = []
 // Creo iteracion para comenzar con el numero identificador correcto
-let identificador
+let identificador = 0
 
 let listaUsuarioStorage = localStorage.getItem('Usuarios')
     if (listaUsuarioStorage != null) {
         listaUsuarioStorage = JSON.parse(listaUsuarioStorage)
         for (usuario of listaUsuarioStorage) {
-            listaUsuarios.push(usuario)
-        }
+            listaUsuarios.push(usuario)     
+            if(usuario.id > identificador){
+                identificador = usuario.id
+            } else {
+                identificador = 0
+            }}
     } else {
         identificador = 0
     }
 
-const persona1 = new Usuario('Juanchi', 'Sacco', '1995','a@', 'a', 1)
-listaUsuarios.push(persona1)
-
-// const productos = [{
-//     img: "img/Productos/Camas/Cama1.jpg",
-//     nombre: "Cama 1",
-//     tipoAnimal: "Perro",
-//     categoria: "Desanso",
-//     precio: 1000,
-//     id: 1
-// },{
-//     img: "img/Productos/Camas/Cama2.png",
-//     nombre: "Cama 2",
-//     tipoAnimal: "Perro",
-//     categoria: "Desanso",
-//     precio: 2000,
-//     id: 2
-// },{
-//     img: "img/Productos/Camas/Cama3.png",
-//     nombre: "Cama 3",
-//     tipoAnimal: "Perro",
-//     categoria: "Desanso",
-//     precio: 1500,
-//     id: 3
-// },{
-//     img: "img/Productos/Camas/Cama4.jpg",
-//     nombre: "Cama 4",
-//     tipoAnimal: "Gato",
-//     categoria: "Desanso",
-//     precio: 3000,
-//     id: 4
-// },{
-//     img: "img/Productos/Camas/Cama5.jpeg",
-//     nombre: "Cama 5",
-//     tipoAnimal: "Perro",
-//     categoria: "Desanso",
-//     precio: 2500,
-//     id: 5
-// },{
-//     img: "img/Productos/Camas/Cama6.jpeg",
-//     nombre: "Cama 6",
-//     tipoAnimal: "Gato",
-//     categoria: "Desanso",
-//     precio: 1000,
-//     id: 6
-// },{
-//     img: "img/Productos/Correas/Correa1.jpg",
-//     nombre: "Correa 1",
-//     tipoAnimal: "Gato",
-//     categoria: "Paseo",
-//     precio: 500,
-//     id: 7
-// },{
-//     img: "img/Productos/Correas/Correa2.jpg",
-//     nombre: "Correa 2",
-//     tipoAnimal: "Perro",
-//     categoria: "Paseo",
-//     precio: 700,
-//     id: 8
-// },{
-//     img: "img/Productos/Juguetes/Juguete1.jpg",
-//     nombre: "Juguete 1",
-//     tipoAnimal: "Perro",
-//     categoria: "Juegos",
-//     precio: 1300,
-//     id: 9
-// },{
-//     img: "img/Productos/Juguetes/Juguete2.jpg",
-//     nombre: "Juguete 2",
-//     tipoAnimal: "Perro",
-//     categoria: "Juegos",
-//     precio: 1800,
-//     id: 10
-// },{
-//     img: "img/Productos/Juguetes/Juguete3.jpg",
-//     nombre: "Juguete 3",
-//     tipoAnimal: "Gato",
-//     categoria: "Juegos",
-//     precio: 900,
-//     id: 11
-// },{
-//     img: "img/Productos/Juguetes/Juguete4.jpg",
-//     nombre: "Juguete 4",
-//     tipoAnimal: "Gato",
-//     categoria: "Juegos",
-//     precio: 1400,
-//     id: 12
-// },{
-//     img: "img/Productos/Transportadores/Transportador1.jpg",
-//     nombre: "Transportador 1",
-//     tipoAnimal: "Gato",
-//     categoria: "Transporte",
-//     precio: 4000,
-//     id: 13
-// },{
-//     img: "img/Productos/Transportadores/Transportador2.jpg",
-//     nombre: "Transportador 2",
-//     tipoAnimal: "Gato",
-//     categoria: "Transporte",
-//     precio: 6000,
-//     id: 14
-// },{
-//     img: "img/Productos/Transportadores/Transportador3.jpg",
-//     nombre: "Transportador 3",
-//     tipoAnimal: "Perro",
-//     categoria: "Transporte",
-//     precio: 7000,
-//     id: 15
-// },{
-//     img: "img/Productos/Transportadores/Transportador4.jpg",
-//     nombre: "Transportador 4",
-//     tipoAnimal: "Perro",
-//     categoria: "Transporte",
-//     precio: 8000,
-//     id: 16
-// }
-// ]
+// const persona1 = new Usuario('Juanchi', 'Sacco', '1995','a@', 'a', 1)
+// listaUsuarios.push(persona1)
 
 // Array de carrito de compras por usuario
 let carrito = []
+
+// let carritoStorage = localStorage.getItem('carrito')
+// if (carritoStorage != null) {
+//     carritoStorage = JSON.parse(carritoStorage)
+//     carritoStorage.forEach((e) => {carrito.push(e)})
+//     console.log(carrito)
+// }
 /* Finalizan los array de la pagina */
 
 
@@ -185,8 +81,7 @@ if (btnCerrarSesion != null) {
         formulario.style.display = 'flex'
         estadoInicioSesion.innerText = ''
         !parteCarrito.classList.contains('oculto') && parteCarrito.classList.add('oculto')
-        productoEnCarro = ''
-        listaCarrito.innerHTML = productoEnCarro
+        listaCarrito.innerHTML = ''
         }
 }
 
@@ -203,9 +98,10 @@ let tablaProductos = document.querySelector('#productos')
 let articulo = ''
 let parteCarrito = document.querySelector('#carrito')
 let listaCarrito = document.querySelector('#listaCarrito')
+let listaCarritoStorage = document.querySelector('#listaCarritoStorage')
 let btnCarrito = document.querySelector('#btnCarrito')
-let productoEnCarro
 let costoTotalCarro = document.querySelector('#costoTotal')
+let productoEnCarro
 let sumaProductos = 0
 // Muestra o oculta el carrito de compras
 btnCarrito.onclick = (e) => {
@@ -218,7 +114,6 @@ fetch('productos.json')
         return response.json();
     })
     .then((productos) => {
-        console.log('Estoy en el fetch')
         productos.forEach(producto => {
             const {img, nombre, tipoAnimal, precio, id} = producto
             articulo += `<article class="col-3 mt-3">
@@ -235,13 +130,14 @@ fetch('productos.json')
         tablaProductos.innerHTML = articulo
         // Llamo al boton para agregar productos al carrito
         let btnsAgregarACarrito = document.querySelectorAll('.btnAgregarACarrito')
+        console.log('Estoy en fetch')
         for (btn of btnsAgregarACarrito) {
             btn.onclick = (e) => {
-                console.log(carrito)
                 let idBtn = e.target.attributes.id.value
                 let productoSeleccionado = productos.find(e => e.id == idBtn)
                 productoSeleccionado.idComprador = usuarioActivo
                 carrito.push(productoSeleccionado)
+                console.log(carrito)
                 localStorage.setItem('carrito', JSON.stringify(carrito))
                 cargarCarrito(productoSeleccionado)
             }
@@ -262,9 +158,7 @@ function verificarCarroLleno(){
 
 function filtrarStoragePorUsuario(carritoStorage){
     let carroAMostrar = []
-    for(producto of carritoStorage){
-        console.log(producto)
-    }
+    console.log(carroAMostrar)
     carroAMostrar = carritoStorage.map(function(e) {
         if(e.idComprador == usuarioActivo){
             return e
@@ -273,23 +167,16 @@ function filtrarStoragePorUsuario(carritoStorage){
             return e
         }
     })
-    console.log(carroAMostrar)
-    !carroAMostrar.includes(null) ? (carrito.length = 0, carroAMostrar.forEach(e => {cargarCarrito(e)})) : carroAMostrar.length = 0
+    let carroFiltrado = carroAMostrar.filter(Boolean)
+    carroFiltrado != null ? (console.log('Entre al ok'), carrito.length = 0, carroFiltrado.forEach(e => {carrito.push(e)}), carroFiltrado.forEach(e => {cargarCarrito(e)})) : carroFiltrado.length = 0
 }
 
 function cargarCarrito(producto){
+        // listaCarrito.innerHTML = ''
         const {img, nombre, precio} = producto
-        productoEnCarro += `<li class="list-group-item"><p><img src="${img}" class="imgProductoEnCarrito" alt=""></p><p>${nombre}</p><p>Precio: $${precio}</p><button id="btnQuitarProducto">Quitar</button></li>`
-        listaCarrito.innerHTML = productoEnCarro
+        productoEnCarro = `<li class="list-group-item"><p><img src="${img}" class="imgProductoEnCarrito" alt=""></p><p>${nombre}</p><p>Precio: $${precio}</p><button id="btnQuitarProducto">Quitar</button></li>`
+        listaCarrito.innerHTML += productoEnCarro
 }
-
-// function calcularTotal(){
-//     for(producto of carrito){
-//         sumaProductos += producto.precio
-//         // costoTotalCarro
-//     }
-//     console.log(sumaProductos)
-// }
 
 /* Finalizan la pagina productos */
 
@@ -308,9 +195,8 @@ function iniciarSesion(e){
             formulario.style.display = 'none'
             usuarioActivo = usuario.id
             ingresoExitoso = true
-            formulario.reset()
             verificarCarroLleno()
-            // agregarProductoACarrito()
+            formulario.reset()
             swal({
                 title: "Ingreso exitoso",
                 icon: "success",
@@ -328,21 +214,6 @@ function iniciarSesion(e){
     }
 }
 
-// Creo funcion mostrar campos de registro
-// function mostrarCamposDeRegistro(e){
-//         formRegistro.style.display = 'block'
-//         camposDeRegistro.style.display = 'block'
-//         formulario.style.display = 'none'
-//         estadoInicioSesion.classList.add('oculto')
-// }
-
-for (usuario of listaUsuarios) {
-    if(usuario.id > identificador){
-        identificador = usuario.id
-    } else {
-        identificador = 0
-    }
-}
 // Creo funcion registrarse como usuario
 function registrarse(e){
     e.preventDefault()
@@ -364,7 +235,7 @@ function registrarse(e){
         formRegistro.reset()
     }
     // Esta condicion entra si el registro del nuevo usuario fue correcto. 
-    ingresoExitoso ? (camposDeRegistro.style.display = 'none', formulario.style.display = 'flex', popupRegistro.classList.add('oculto'), swal({title: "Registro exitoso",icon: "success",})) : (camposDeRegistro.style.display = 'block', formulario.style.display = 'none' )
+    ingresoExitoso ? (camposDeRegistro.style.display = 'none', formulario.style.display = 'flex', popupRegistro.classList.add('oculto'), swal({title: "Registro exitoso",icon: "success"})) : (camposDeRegistro.style.display = 'block', formulario.style.display = 'none' )
 }
 
 // Creo funcion para ver si es mayor de edad
