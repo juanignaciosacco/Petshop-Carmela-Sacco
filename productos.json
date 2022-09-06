@@ -2,112 +2,112 @@
     "img": "img/Productos/Camas/Cama1.jpg",
     "nombre": "Cama 1",
     "tipoAnimal": "Perro",
-    "categoria": "Desanso",
+    "categoria": "caninosDesanso",
     "precio": 1000,
     "id": 1
 },{
     "img": "img/Productos/Camas/Cama2.png",
     "nombre": "Cama 2",
     "tipoAnimal": "Perro",
-    "categoria": "Desanso",
+    "categoria": "caninosDescanso",
     "precio": 2000,
     "id": 2
 },{
     "img": "img/Productos/Camas/Cama3.png",
     "nombre": "Cama 3",
     "tipoAnimal": "Perro",
-    "categoria": "Desanso",
+    "categoria": "caninosDescanso",
     "precio": 1500,
     "id": 3
 },{
     "img": "img/Productos/Camas/Cama4.jpg",
     "nombre": "Cama 4",
     "tipoAnimal": "Gato",
-    "categoria": "Desanso",
+    "categoria": "felinosDescanso",
     "precio": 3000,
     "id": 4
 },{
     "img": "img/Productos/Camas/Cama5.jpeg",
     "nombre": "Cama 5",
     "tipoAnimal": "Perro",
-    "categoria": "Desanso",
+    "categoria": "caninosDescanso",
     "precio": 2500,
     "id": 5
 },{
     "img": "img/Productos/Camas/Cama6.jpeg",
     "nombre": "Cama 6",
     "tipoAnimal": "Gato",
-    "categoria": "Desanso",
+    "categoria": "felinosDescanso",
     "precio": 1000,
     "id": 6
 },{
     "img": "img/Productos/Correas/Correa1.jpg",
     "nombre": "Correa 1",
     "tipoAnimal": "Gato",
-    "categoria": "Paseo",
+    "categoria": "felinosPaseo",
     "precio": 500,
     "id": 7
 },{
     "img": "img/Productos/Correas/Correa2.jpg",
     "nombre": "Correa 2",
     "tipoAnimal": "Perro",
-    "categoria": "Paseo",
+    "categoria": "caninosPaseo",
     "precio": 700,
     "id": 8
 },{
     "img": "img/Productos/Juguetes/Juguete1.jpg",
     "nombre": "Juguete 1",
     "tipoAnimal": "Perro",
-    "categoria": "Juegos",
+    "categoria": "caninosJuegos",
     "precio": 1300,
     "id": 9
 },{
     "img": "img/Productos/Juguetes/Juguete2.jpg",
     "nombre": "Juguete 2",
     "tipoAnimal": "Perro",
-    "categoria": "Juegos",
+    "categoria": "caninosJuegos",
     "precio": 1800,
     "id": 10
 },{
     "img": "img/Productos/Juguetes/Juguete3.jpg",
     "nombre": "Juguete 3",
     "tipoAnimal": "Gato",
-    "categoria": "Juegos",
+    "categoria": "felinosJuegos",
     "precio": 900,
     "id": 11
 },{
     "img": "img/Productos/Juguetes/Juguete4.jpg",
     "nombre": "Juguete 4",
     "tipoAnimal": "Gato",
-    "categoria": "Juegos",
+    "categoria": "felinosJuegos",
     "precio": 1400,
     "id": 12
 },{
     "img": "img/Productos/Transportadores/Transportador1.jpg",
     "nombre": "Transportador 1",
     "tipoAnimal": "Gato",
-    "categoria": "Transporte",
+    "categoria": "felinosTransporte",
     "precio": 4000,
     "id": 13
 },{
     "img": "img/Productos/Transportadores/transportador2.jpg",
     "nombre": "Transportador 2",
     "tipoAnimal": "Gato",
-    "categoria": "Transporte",
+    "categoria": "felinosTransporte",
     "precio": 6000,
     "id": 14
 },{
     "img": "img/Productos/Transportadores/Transportador3.jpg",
     "nombre": "Transportador 3",
     "tipoAnimal": "Perro",
-    "categoria": "Transporte",
+    "categoria": "caninosTransporte",
     "precio": 7000,
     "id": 15
 },{
     "img": "img/Productos/Transportadores/Transportador4.jpg",
     "nombre": "Transportador 4",
     "tipoAnimal": "Perro",
-    "categoria": "Transporte",
+    "categoria": "caninosTransporte",
     "precio": 8000,
     "id": 16
 }

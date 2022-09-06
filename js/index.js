@@ -1,79 +1,82 @@
-/* Comienza declaracion de los array de la pagina */
-
 // Array de usuarios registrados
 let listaUsuarios = []
-// Creo iteracion para comenzar con el numero identificador correcto
-let identificador = 0
-
-let listaUsuarioStorage = localStorage.getItem('Usuarios')
-    if (listaUsuarioStorage != null) {
-        listaUsuarioStorage = JSON.parse(listaUsuarioStorage)
-        for (usuario of listaUsuarioStorage) {
-            listaUsuarios.push(usuario)     
-            if(usuario.id > identificador){
-                identificador = usuario.id
-            } else {
-                identificador = 0
-            }}
-    } else {
-        identificador = 0
-    }
-
-// const persona1 = new Usuario('Juanchi', 'Sacco', '1995','a@', 'a', 1)
-// listaUsuarios.push(persona1)
-
-// Array de carrito de compras por usuario
 let carrito = []
-
-// let carritoStorage = localStorage.getItem('carrito')
-// if (carritoStorage != null) {
-//     carritoStorage = JSON.parse(carritoStorage)
-//     carritoStorage.forEach((e) => {carrito.push(e)})
-//     console.log(carrito)
-// }
-/* Finalizan los array de la pagina */
-
-
-/* Comienzan los llamados de elementos de formulario inicio sesion y registro */
 // Llamo a la ventana popup de inicio de sesion o registro
 let popupRegistro = document.querySelector('.popupInicioSesion')
 // Llamo al link de registro
 let btnRegistro = document.querySelector('#iconoCuenta')
-// Creo evento para mostrar ventana de inicio de sesion o registro de usuario
-btnRegistro.onclick = (e) => {
-    popupRegistro.classList.contains('oculto') ? (popupRegistro.classList.remove('oculto'), parteCarrito.classList.add('oculto')) : popupRegistro.classList.add('oculto');
-}
-
 let ingresoExitoso
 let usuarioActivo
 // Llamo al formulario de inicio de sesion
 let formulario = document.querySelector('#formularioInicioSesion')
-formulario.addEventListener('submit', iniciarSesion)
-
 // Llamo al boton de registro del formulario
 let botonRegistrarse = document.querySelector('#btnRegistrarse')
+// Llamo al mensaje de registro
+let estadoInicioSesion = document.querySelector('.estadoInicioSesion')
+// // Llamo al menu del usuario ingresado
+let menuUsuario = document.querySelector('#menuUsuario')
+// Llamo al boton para cerrar sesion
+let btnCerrarSesion = document.querySelector('#btnCerrarSesion')
+// LLamo al campo de registro
+let camposDeRegistro = document.querySelector('.camposDeRegistro')
+// Llamo al formulario de registro
+let formRegistro = document.querySelector('#formularioRegistro')
+// Llamo al boton volver
+let btnVolver = document.querySelector('#btnVolver')
+// Creo iteracion para comenzar con el numero identificador correcto
+let identificador = 0
+// Llamo a la tabla de productos
+let tablaProductos = document.querySelector('#productos')
+let articulo = ''
+// Llamo al popup carrito
+let parteCarrito = document.querySelector('#carrito')
+// Llamo a la lista carrito
+let listaCarrito = document.querySelector('#listaCarrito')
+// Llamo al boton para mostrar el carrito
+let btnCarrito = document.querySelector('#btnCarrito')
+let productoEnCarro
+// Creo array de productos seleccionados por usuario
+let productoSeleccionado = []
+// Traigo a la lista de usuarios del storage
+let listaUsuarioStorage = localStorage.getItem('Usuarios')
+// Traigo los filtors de busqueda para los productos
+let filtros = document.querySelectorAll('.filtros')
+// Creo array para cargar con los poructos filtrados
+let productosFiltrados = []
+// Creo variable para el array de botones
+let btnsAgregarACarrito
+let btnsQuitarProdCarro
+// Creo verificador para los filtros
+let aplicoFiltro = false
+// Verifico si hay usuarios guardados en el localStorage
+if (listaUsuarioStorage != null) {
+    listaUsuarioStorage = JSON.parse(listaUsuarioStorage)
+    for (usuario of listaUsuarioStorage) {
+        listaUsuarios.push(usuario)     
+        if(usuario.id > identificador){
+            identificador = usuario.id
+        } else {
+            identificador = 0
+        }}
+} else {
+    identificador = 0
+}
+// Creo evento para mostrar ventana de inicio de sesion o registro de usuario
+btnRegistro.onclick = (e) => {
+    popupRegistro.classList.contains('oculto') ? (popupRegistro.classList.remove('oculto'), parteCarrito.classList.add('oculto')) : popupRegistro.classList.add('oculto');
+}
+// Creo evento para iniciar sesion
+formulario.addEventListener('submit', iniciarSesion)
+// Evento para ver campos de registro de usuario
 botonRegistrarse.onclick = (e) => {
         formRegistro.style.display = 'block'
         camposDeRegistro.style.display = 'block'
         formulario.style.display = 'none'
         estadoInicioSesion.classList.add('oculto')
 }
-
-// LLamo al campo de registro
-let camposDeRegistro = document.querySelector('.camposDeRegistro')
-
-// Llamo al formulario de registro
-let formRegistro = document.querySelector('#formularioRegistro')
+// Evento para registrase
 formRegistro.addEventListener('submit', registrarse)
-
-// Llamo al mensaje de registro
-let estadoInicioSesion = document.querySelector('.estadoInicioSesion')
-
-// // Llamo al menu del usuario ingresado
-let menuUsuario = document.querySelector('#menuUsuario')
-
-// Llamo al boton para cerrar sesion
-let btnCerrarSesion = document.querySelector('#btnCerrarSesion')
+// Verifico si existe el boton cerrar sesion y si es asi le doy su funcionalidad
 if (btnCerrarSesion != null) {
     btnCerrarSesion.onclick = (e) => {
         ingresoExitoso = false
@@ -82,27 +85,14 @@ if (btnCerrarSesion != null) {
         estadoInicioSesion.innerText = ''
         !parteCarrito.classList.contains('oculto') && parteCarrito.classList.add('oculto')
         listaCarrito.innerHTML = ''
+        localStorage.setItem('carrito' + usuarioActivo, JSON.stringify(carrito))
+        carrito.length = 0
         }
 }
-
-// Llamo al boton volver
-let btnVolver = document.querySelector('#btnVolver')
+// Evento para boton volver
 btnVolver.onclick = (e) => {
-    formulario.style.display == 'none' ? (formulario.style.display = 'block', formRegistro.style.display = 'none') : formulario.style.display = 'none'
+    formulario.style.display == 'none' ? (formulario.style.display = 'flex', formRegistro.style.display = 'none') : formulario.style.display = 'none'
 }
-/* Finalizan los llamados de elementos de formulario inicio sesion y registro */
-
- /* Comienza la pagina productos */
-
-let tablaProductos = document.querySelector('#productos')
-let articulo = ''
-let parteCarrito = document.querySelector('#carrito')
-let listaCarrito = document.querySelector('#listaCarrito')
-let listaCarritoStorage = document.querySelector('#listaCarritoStorage')
-let btnCarrito = document.querySelector('#btnCarrito')
-let costoTotalCarro = document.querySelector('#costoTotal')
-let productoEnCarro
-let sumaProductos = 0
 // Muestra o oculta el carrito de compras
 btnCarrito.onclick = (e) => {
     parteCarrito.classList.contains('oculto') ? (parteCarrito.classList.remove('oculto'), popupRegistro.classList.add('oculto')) : parteCarrito.classList.add('oculto');
@@ -110,78 +100,160 @@ btnCarrito.onclick = (e) => {
 
 // Cargo los productos al html mediante fetch
 fetch('productos.json')
-    .then((response) => {
-        return response.json();
+.then((response) => {
+    return response.json();
+})
+.then((productos) => {
+    productos.forEach(producto => {
+        const {img, nombre, tipoAnimal, precio, id} = producto
+        articulo += `<article class="articulo" mt-3">
+                        <img src="${img}" alt="">
+                        <div class="descripcion">
+                            <h3>${nombre}</h3>
+                            <p>${tipoAnimal}</p>
+                            <p>Precio: $${precio}</p>
+                            <p>
+                        </div>
+                        <input type="button" value="Agregar a carrito" id="${id}" class="btnAgregarACarrito btn">
+                    </article>`
     })
-    .then((productos) => {
-        productos.forEach(producto => {
-            const {img, nombre, tipoAnimal, precio, id} = producto
-            articulo += `<article class="col-3 mt-3">
-                            <img src="${img}" alt="">
-                            <div class="descripcion">
-                                <h3>${nombre}</h3>
-                                <p>${tipoAnimal}</p>
-                                <p>Precio: $${precio}</p>
-                                <p>
-                            </div>
-                            <input type="button" value="Agregar a carrito" id="${id}" class="btnAgregarACarrito">
-                        </article>`
+    tablaProductos.innerHTML = articulo
+    for (filtro of filtros){
+        filtro.onclick = (e) =>{
+            filtrarProductos(productos, e)
+        } 
+    }
+    // Llamo al boton para agregar productos al carrito
+    btnsAgregarACarrito = document.querySelectorAll('.btnAgregarACarrito')
+    agregarACarrito(btnsAgregarACarrito, productos)
+})
+.catch((error) => {
+    console.log(error)
+})
+
+// Funcion para filtrar productos
+function filtrarProductos(productos, filtro){
+    aplicoFiltro = true
+        let valorFiltro = filtro.target.attributes[1].value
+        let seleccionado = filtro.target.checked
+
+        productos.forEach((producto) => {
+            if(seleccionado && producto.categoria == valorFiltro){
+                productosFiltrados.push(producto)
+                console.log(productosFiltrados)
+            } else if (seleccionado == false && producto.categoria == valorFiltro){
+                productosFiltrados.forEach((prod) => {
+                    prod.categoria == producto.categoria && delete productosFiltrados[productosFiltrados.indexOf(prod)]
+                })
+                productosFiltrados = productosFiltrados.filter(Boolean)
+            }
         })
-        tablaProductos.innerHTML = articulo
-        // Llamo al boton para agregar productos al carrito
-        let btnsAgregarACarrito = document.querySelectorAll('.btnAgregarACarrito')
-        console.log('Estoy en fetch')
-        for (btn of btnsAgregarACarrito) {
-            btn.onclick = (e) => {
+        tablaProductos.innerHTML = ''
+        if(productosFiltrados.length != 0){
+            productosFiltrados.forEach(e => {
+                const {img, nombre, tipoAnimal, precio, id} = e
+                articulo = `<article class="col-3 mt-3">
+                                <img src="${img}" alt="">
+                                <div class="descripcion">
+                                    <h3>${nombre}</h3>
+                                    <p>${tipoAnimal}</p>
+                                    <p>Precio: $${precio}</p>
+                                </div>
+                                <input type="button" value="Agregar a carrito" id="${id}" class="btnAgregarACarrito btn">
+                            </article>`
+                tablaProductos.innerHTML += articulo
+            })
+            btnsAgregarACarrito = document.querySelectorAll('.btnAgregarACarrito')
+            agregarACarrito(btnsAgregarACarrito, productosFiltrados)
+        } else {
+            productos.forEach(producto => {
+                const {img, nombre, tipoAnimal, precio, id} = producto
+                articulo = `<article class="col-3 mt-3">
+                                <img src="${img}" alt="">
+                                <div class="descripcion">
+                                    <h3>${nombre}</h3>
+                                    <p>${tipoAnimal}</p>
+                                    <p>Precio: $${precio}</p>
+                                </div>
+                                <input type="button" value="Agregar a carrito" id="${id}" class="btnAgregarACarrito btn">
+                            </article>`
+                tablaProductos.innerHTML += articulo
+            })
+            btnsAgregarACarrito = document.querySelectorAll('.btnAgregarACarrito')
+            agregarACarrito(btnsAgregarACarrito, carrito)
+        }
+}
+// Funcion accion botones agregar a carrito
+function agregarACarrito(botones, productos) {
+    for (btn of botones) {
+        btn.onclick = (e) => {
+            if (ingresoExitoso){
                 let idBtn = e.target.attributes.id.value
-                let productoSeleccionado = productos.find(e => e.id == idBtn)
+                productoSeleccionado = productos.find(e => e.id == idBtn)
                 productoSeleccionado.idComprador = usuarioActivo
                 carrito.push(productoSeleccionado)
-                console.log(carrito)
-                localStorage.setItem('carrito', JSON.stringify(carrito))
                 cargarCarrito(productoSeleccionado)
+            } else {
+                swal({
+                    icon: "info",
+                    text: 'Debes iniciar sesion para agregar productos al carrito!',
+                    buttons: {
+                        cancel: false,
+                        confirm: "Iniciar sesion",
+                        roll: {
+                          text: "Registrarse",
+                          value: "registro",
+                        },
+                      },
+                  })
+                  .then((result) => {
+                    console.log(result)
+                    if (result && result != "registro") {
+                        popupRegistro.classList.contains('oculto') && popupRegistro.classList.remove('oculto')
+                        formRegistro.style.display == 'block' && camposDeRegistro.style.display == 'block' && (formRegistro.style.display = 'none', camposDeRegistro.style.display = 'none', formulario.style.display = 'flex')
+                    } else if (result == "registro") {
+                        popupRegistro.classList.contains('oculto') && popupRegistro.classList.remove('oculto')
+                        formRegistro.style.display = 'block'
+                        camposDeRegistro.style.display = 'block'
+                        formulario.style.display = 'none'
+                        estadoInicioSesion.classList.add('oculto')
+                    }
+                  })
             }
         }
-    })
-    .catch((error) => {
-        console.log(error)
-    })
-
-// Verifico si el carrito esta lleno o no 
-function verificarCarroLleno(){
-    let carritoStorage = localStorage.getItem('carrito')
-    if (carritoStorage != null) {
-        carritoStorage = JSON.parse(carritoStorage)
-        filtrarStoragePorUsuario(carritoStorage)
     }
 }
-
-function filtrarStoragePorUsuario(carritoStorage){
-    let carroAMostrar = []
-    console.log(carroAMostrar)
-    carroAMostrar = carritoStorage.map(function(e) {
-        if(e.idComprador == usuarioActivo){
-            return e
-        } else {
-            e = null
-            return e
-        }
+// Esta funcion elimina producto del carrito
+function quitarDeCarrito(carroNuevo){
+    listaCarrito.innerHTML = ''
+    carroNuevo.forEach(e => {
+        cargarCarrito(e)
     })
-    let carroFiltrado = carroAMostrar.filter(Boolean)
-    carroFiltrado != null ? (console.log('Entre al ok'), carrito.length = 0, carroFiltrado.forEach(e => {carrito.push(e)}), carroFiltrado.forEach(e => {cargarCarrito(e)})) : carroFiltrado.length = 0
 }
-
+// Verifico si el carrito en el storage esta lleno
+function verificarCarroLleno(){
+    let carritoStorage = localStorage.getItem('carrito' + usuarioActivo)
+    if (carritoStorage != null) {
+        carritoStorage = JSON.parse(carritoStorage)
+        carritoStorage.forEach(e => {carrito.push(e), cargarCarrito(e)})
+    }
+}
+// Imprimo el carro por pantalla
 function cargarCarrito(producto){
         // listaCarrito.innerHTML = ''
-        const {img, nombre, precio} = producto
-        productoEnCarro = `<li class="list-group-item"><p><img src="${img}" class="imgProductoEnCarrito" alt=""></p><p>${nombre}</p><p>Precio: $${precio}</p><button id="btnQuitarProducto">Quitar</button></li>`
+        const {img, nombre, precio, id} = producto
+        productoEnCarro = `<li class="list-group-item"><p><img src="${img}" class="imgProductoEnCarrito" alt=""></p><p>${nombre}</p><p>Precio: $${precio}</p><button class="btnQuitarProducto btn" id="${id}">Quitar</button></li>`
         listaCarrito.innerHTML += productoEnCarro
+        btnsQuitarProdCarro = document.querySelectorAll('.btnQuitarProducto')
+        for(btn of btnsQuitarProdCarro) {
+            btn.onclick = (e) => {
+                let idBtn = e.target.id
+                let productoAQuitar = carrito.find(e => e.id == idBtn)
+                carrito.splice(carrito.indexOf(productoAQuitar), 1)
+                quitarDeCarrito(carrito)
+            }
+        }
 }
-
-/* Finalizan la pagina productos */
-
-/* Comienzan las funciones */
-
 // Creo funcion de inicio de sesion
 function iniciarSesion(e){
     e.preventDefault()
@@ -213,7 +285,6 @@ function iniciarSesion(e){
         }
     }
 }
-
 // Creo funcion registrarse como usuario
 function registrarse(e){
     e.preventDefault()
@@ -237,7 +308,6 @@ function registrarse(e){
     // Esta condicion entra si el registro del nuevo usuario fue correcto. 
     ingresoExitoso ? (camposDeRegistro.style.display = 'none', formulario.style.display = 'flex', popupRegistro.classList.add('oculto'), swal({title: "Registro exitoso",icon: "success"})) : (camposDeRegistro.style.display = 'block', formulario.style.display = 'none' )
 }
-
 // Creo funcion para ver si es mayor de edad
 function caclularMayorDeEdad(fechaNacARegistrar) {
     let mayorDeEdad = false
@@ -261,10 +331,6 @@ function caclularMayorDeEdad(fechaNacARegistrar) {
 
     return mayorDeEdad
 }
-
-/* Finalizan las funciones */
-
-/* Comienzan los objetos */
 // Creo funcion contrsuctora para crear objeto Usuario
 function Usuario(nombre, apellido, fechaNac, email, contraseña, id){
     this.nombre = nombre
@@ -274,16 +340,3 @@ function Usuario(nombre, apellido, fechaNac, email, contraseña, id){
     this.contrasena = contraseña
     this.id = id
 }
-
-// Creo objeto productos
-function Producto(nombre, tipoAnimal, categoria, marca, cantidad, precio) {
-    this.nombre = nombre
-    this.tipoAnimal = tipoAnimal
-    this.categoria = categoria
-    this.marca = marca
-    this.cantidad = cantidad
-    this.precio = precio
-}
-/* Finalizan los objetos */
-
-/* Comienza la creacion de objetos por defecto */

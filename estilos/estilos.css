@@ -55,6 +55,12 @@ nav {
   background-color: black;
 }
 
+.btn {
+  background-color: #AD5F23;
+  border-radius: 20px;
+  color: #fff;
+}
+
 .avance {
   background-color: #AD5F23;
 }
@@ -69,6 +75,7 @@ nav {
   padding-top: 50px;
   padding-bottom: 30px;
   border: 1px solid black;
+  color: #E6A473;
   background-color: #614530;
   position: fixed;
   top: 55px;
@@ -173,11 +180,15 @@ footer i {
   display: block;
   padding-top: 60px;
   width: 200px;
-  height: 100%;
+  height: 90%;
   background: #614530;
   left: 0px;
 }
 
+#barraFiltros ul .tituloCat {
+  color: #E0762D;
+  font-size: 25px;
+}
 #barraFiltros ul li {
   color: #E6A473;
   list-style: none;
@@ -187,12 +198,14 @@ footer i {
 }
 
 #productos {
+  height: 1500px;
   margin-left: 150px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 }
 #productos article {
+  width: 300px;
   text-align: center;
 }
 #productos article img {

@@ -49,6 +49,11 @@ nav
 #btn-carousel
     background-color: black
 
+.btn
+    background-color: $colorMarronClaro
+    border-radius: 20px
+    color: #fff
+
 .avance
     background-color: $colorMarronClaro
 
@@ -61,6 +66,7 @@ nav
     padding-top: 50px
     padding-bottom: 30px
     border: 1px solid black
+    color: $colorMarronCremita
     background-color: $colorMarronOscuro
     position: fixed
     top: 55px
@@ -149,12 +155,15 @@ footer
     display: block
     padding-top: 60px
     width: 200px
-    height: 100%
+    height: 90%
     background: $colorMarronOscuro
     left: 0px
 
-#barraFiltros 
-    ul 
+#barraFiltros
+    ul
+        .tituloCat
+            color: $colorMarronAnaranjado
+            font-size: 25px
         li 
             color: $colorMarronCremita
             list-style: none
@@ -163,11 +172,13 @@ footer
             text-align: center
 
 #productos
+    height: 1500px
     margin-left: 150px
     display: flex
     flex-direction: row
     flex-wrap: wrap
     article
+        width: 300px
         text-align: center
         img
             height: 150px
