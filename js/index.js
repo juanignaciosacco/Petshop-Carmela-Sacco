@@ -35,6 +35,8 @@ let listaCarrito = document.querySelector('#listaCarrito')
 // Llamo al boton para mostrar el carrito
 let btnCarrito = document.querySelector('#btnCarrito')
 let productoEnCarro
+let costoTotal = document.querySelector('#costoTotal')
+let precioTotal = 0
 // Creo array de productos seleccionados por usuario
 let productoSeleccionado = []
 // Traigo a la lista de usuarios del storage
@@ -87,6 +89,7 @@ if (btnCerrarSesion != null) {
         listaCarrito.innerHTML = ''
         localStorage.setItem('carrito' + usuarioActivo, JSON.stringify(carrito))
         carrito.length = 0
+        precioTotal = 0
         }
 }
 // Evento para boton volver
@@ -193,6 +196,10 @@ function agregarACarrito(botones, productos) {
                 productoSeleccionado.idComprador = usuarioActivo
                 carrito.push(productoSeleccionado)
                 cargarCarrito(productoSeleccionado)
+                swal({
+                    title: `Aregaste el producto ${productoSeleccionado.nombre} para ${productoSeleccionado.tipoAnimal} a tu carrito`,
+                    icon: "success",
+                })
             } else {
                 swal({
                     icon: "info",
@@ -225,6 +232,7 @@ function agregarACarrito(botones, productos) {
 }
 // Esta funcion elimina producto del carrito
 function quitarDeCarrito(carroNuevo){
+    precioTotal = 0
     listaCarrito.innerHTML = ''
     carroNuevo.forEach(e => {
         cargarCarrito(e)
@@ -253,6 +261,8 @@ function cargarCarrito(producto){
                 quitarDeCarrito(carrito)
             }
         }
+        precioTotal += precio
+        costoTotal.innerHTML = `El total de tu compra es de: $${precioTotal}`
 }
 // Creo funcion de inicio de sesion
 function iniciarSesion(e){
